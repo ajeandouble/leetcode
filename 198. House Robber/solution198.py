@@ -20,6 +20,7 @@ from typing import List
 #         recursive(nums, 1, 0)
 #         return ans
 
+
 class Solution:
     def rob(self, nums: List[int]) -> int:
         N = len(nums)
@@ -28,24 +29,25 @@ class Solution:
         dp[1] = nums[0]
         print(dp)
         for i in range(1, N):
-            if dp[i] > dp[i-1] + nums[i]:
-                dp[i+1] = dp[i]
+            if dp[i] > dp[i - 1] + nums[i]:
+                dp[i + 1] = dp[i]
             else:
-                dp[i+1] = dp[i-1] + nums[i]
+                dp[i + 1] = dp[i - 1] + nums[i]
             print(dp)
         ans = [dp[-1]]
-        for i in range(0, N-1:
-            if dp[i] > dp[i-1] + nums[i]:
-                dp[i+1] = dp[i]
+        for i in range(0, N - 1):
+            if dp[i] > dp[i - 1] + nums[i]:
+                dp[i + 1] = dp[i]
             else:
-                dp[i+1] = dp[i-1] + nums[i]
+                dp[i + 1] = dp[i - 1] + nums[i]
             print(dp)
         ans.append(dp[-1])
 
         return max(ans)
 
+
 s = Solution()
 
-lst = [1,3,2,1,1,4]
+lst = [1, 3, 2, 1, 1, 4]
 ans = s.rob(lst)
-print(ans) # 4
+print(ans)  # 4
