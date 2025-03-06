@@ -1,8 +1,9 @@
 from typing import List, Tuple
 
+
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-        if sum (candidates) < target:
+        if sum(candidates) < target:
             return []
         solutions = set()
         candidates = sorted(candidates)
@@ -11,8 +12,9 @@ class Solution:
         N = len(candidates)
 
         cur_sum = 0
-        i = 0:
-        def bt(idx, curSum, curIdx ,_d=0):
+        i = 0
+
+        def bt(idx, curSum, curIdx, _d=0):
             if curSum == target:
                 new_combs = [c for c in combinations]
                 new_combs.sort()
@@ -38,7 +40,7 @@ class Solution:
                 combinations.append(candidates[i])
                 # print(f"i={i} _d={_d}, curSum={curSum + candidates[i]}, curIdx={curIdx} combinations={combinations}")
                 visited_idxs.add(i)
-                bt(idx +1, curSum + candidates[i], i+1, _d=_d+1)
+                bt(idx + 1, curSum + candidates[i], i + 1, _d=_d + 1)
                 visited_idxs.remove(i)
                 combinations.pop()
                 prev = candidates[i]
@@ -46,9 +48,10 @@ class Solution:
         bt(0, 0, 0)
         return [list(t) for t in solutions]
 
+
 s = Solution()
 
-candidates, target = [10,1,2,7,6,1,5], 8
+candidates, target = [10, 1, 2, 7, 6, 1, 5], 8
 ans = s.combinationSum2(candidates, target)
 print(ans)
 
