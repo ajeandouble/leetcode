@@ -3,70 +3,34 @@ from typing import List, Tuple
 
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-        if sum(candidates) < target:
-            return []
-        solutions = set()
-        candidates = sorted(candidates)
-        combinations = []
-        visited_idxs = set()
+        print(sorted(candidates))
+        candidates = [x for x in candidates if x <= target]
+        candidates.sort()
+
         N = len(candidates)
+        ans = []
 
-        cur_sum = 0
-        i = 0
+        def dfs(i, comb, total):
+            if total == target:
+                ans.append(comb.copy())
+                return
+            if total > target or i >= N:
+                return
+            # includes candidates[i]
+            comb.append(candidates[i])
+            dfs(i + 1, comb, total + candidates[i])
+            comb.pop()
+            # skip candidates[i] duplicates
+            while i + 1 < N and candidates[i] == candidates[i + 1]:
+                i += 1
+            # excludes candidates[i]
+            dfs(i + 1, comb, total)
 
-        def bt(idx, curSum, curIdx, _d=0):
-            if curSum == target:
-                new_combs = [c for c in combinations]
-                new_combs.sort()
-                new_combs = tuple(new_combs)
-                solutions.add(new_combs)
-                return
-            if len(visited_idxs) == len(candidates):
-                return
-            if curIdx >= N:
-                return
-            if curSum > target:
-                return
-
-            prev = -1
-            for i in range(idx, N):
-                # print(f"_d={_d} i={i}")
-                if prev == candidates[i]:
-                    continue
-                if i in visited_idxs:
-                    continue
-                if curSum + candidates[i] > target:
-                    return
-                combinations.append(candidates[i])
-                # print(f"i={i} _d={_d}, curSum={curSum + candidates[i]}, curIdx={curIdx} combinations={combinations}")
-                visited_idxs.add(i)
-                bt(idx + 1, curSum + candidates[i], i + 1, _d=_d + 1)
-                visited_idxs.remove(i)
-                combinations.pop()
-                prev = candidates[i]
-
-        bt(0, 0, 0)
-        return [list(t) for t in solutions]
+        dfs(0, [], 0)
+        return ans
 
 
 s = Solution()
 
-candidates, target = [10, 1, 2, 7, 6, 1, 5], 8
+candidates, target = [1, 1, 2, 2, 2, 5], 8
 ans = s.combinationSum2(candidates, target)
-print(ans)
-
-# candidates, target = [2,5,2,1,2], 5
-# ans = s.combinationSum2(candidates, target)
-# print(ans)
-
-# candidates, target = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], 27
-# ans = s.combinationSum2(candidates, target)
-# print(ans)
-
-# candidates, target = [1,1,2], 4
-# ans = s.combinationSum2(candidates, target)
-# print(ans)
-
-candidates, target = [1] * 100, 30
-ans = s.combinationSum2(candidates, target)
-print(ans)

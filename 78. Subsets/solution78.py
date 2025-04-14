@@ -1,17 +1,27 @@
 from typing import List
 
+
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        ans = [[]]
-        print("\t\t\t", ans)
-        for n in nums:
-            for i in range(0, len(ans)):
-                ans.append(ans[i] + [n])
-                print(f"n={n} i={i}\t\t\t", ans)
-        print()
+        N = len(nums)
+        ans = []
+        curr_subset = []
+
+        def dfs(i: int):
+            if i >= N:
+                ans.append(curr_subset[::])
+                return
+
+            curr_subset.append(nums[i])
+            dfs(i + 1)
+            curr_subset.pop()
+            dfs(i + 1)
+
+        dfs(0)
         return ans
 
-s = Solution()
-nums = [1,2,3]
-ans = s.subsets(nums)
-print(ans)
+
+nums = [1, 2, 3]
+ans = Solution().subsets(nums)
+print(f"ans of {nums} => {ans}")
+# assert ans == [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]

@@ -3,36 +3,26 @@ from typing import List
 
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        N = len(candidates)
+        candidates = [x for x in candidates if x <= target]
         candidates.sort()
+        N = len(candidates)
         ans = []
-        unique_paths = set()
+        curr_comb: List[int] = []
+        remaining = target
 
-        def dp(path, total, c):
-            if tuple(path) in unique_paths:
-                return False
-            total += c
-            if total > target:
-                unique_paths.add(tuple(path))
-                return False
-            elif total == target:
-                unique_paths.add(tuple(path))
-                ans.append([candidates[x] for x in path])
-                return False
-            for i, c in enumerate(candidates):
-                if not dp(path + [i], total, c):
+        def bt(start_idx):
+            nonlocal remaining
+            if remaining == 0:
+                ans.append(curr_comb.copy())
+            for i in range(start_idx, N):
+                if candidates[i] > remaining:
                     break
-            return True
 
-        for i, c in enumerate(candidates):
-            if c > target:
-                break
-            dp([i], 0, c)
+                curr_comb.append(candidates[i])
+                remaining -= candidates[i]
+                bt(i)
+                curr_comb.pop()
+                remaining += candidates[i]
 
+        bt(0)
         return ans
-
-
-s = Solution()
-candidates, target = [2,3,6,7], 7
-ans = s.combinationSum(candidates, target)
-print(ans)

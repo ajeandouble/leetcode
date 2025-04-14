@@ -1,27 +1,28 @@
 from typing import List
+from time import sleep
+
 
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         N = len(nums)
-        if N == 1:
-            return [nums]
         ans = []
-        used = [False] * 6
+        permutation = []
 
-        def dfs(path):
-            if len(path) == N:
-                ans.append(path)
-                print(ans)
-            for i, n in enumerate(nums):
-                if not used[i]:
-                    used[i] = True
-                    dfs(path + [n])
-                    used[i] = False
+        def helper(curr):
+            print(curr)
+            if len(curr) == 1:
+                permutation.append(curr[0])
+                return
+            if len(curr) == 0:
+                return
 
-        dfs([])
-        return ans
+            for i in range(1, N):
+                helper(curr[i:])
+                # helper(curr[:i])
 
-s = Solution()
-nums = [1,2,3]
-ans = s.permute(nums)
-print(f'ans of {nums} => {ans}')
+        helper(nums)
+
+
+nums = [1, 2, 3]
+ans = Solution().permute(nums)
+print(f"ans of {nums} => {ans}")
