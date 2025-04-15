@@ -1,39 +1,30 @@
-# from typing import List, Dict, Optional
-
-# class Solution:
-#     def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
-#         s = set()
-#         ans = [[]]
-#         for n in nums:
-#             N = len(ans)
-#             for i in range(0, N):
-#                 result = ans[i] + [n]
-#                 if True or tuple(sorted(result)) not in s:
-#                     ans.append(ans[i] + result)
-#                     s.add(tuple(sorted(result)))
-#         print(ans)
-#         return ans
-
-# s = Solution()
-
-# nums = [1,2,2]
-# ans = s.subsetsWithDup(nums)
-# assert sorted(ans) == sorted([[],[1],[1,2],[1,2,2],[2],[2,2]])
+from typing import List
 
 
-import sys
-# def test(default_arr=[], d=0):
-#     print(id(default_arr), id(d), sys.getrefcount(default_arr), sys.getrefcount(d))
-#     if d > 10:
-#         return
-#     test(d=d+1)
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        nums.sort()
+        N = len(nums)
+        ans = []
+        curr = []
 
-# test()
+        def dfs(i):
+            if i >= N:
+                ans.append(curr.copy())
+                return
 
-# print(sys.getrefcount(42))
-mul = 1
-d = {}
-for i in range(-10, 11, 1):
-    d[i] = mul
-    mul *= 10
-print(d)
+            curr.append(nums[i])
+            dfs(i + 1)
+            curr.pop()
+            while i + 1 < N and nums[i] == nums[i + 1]:
+                i += 1
+            dfs(i + 1)
+
+        dfs(0)
+        return ans
+
+
+sol = Solution()
+nums = [1, 2, 2]
+ans = sol.subsetsWithDup(nums)
+print(f"ans for {nums} => {ans}")

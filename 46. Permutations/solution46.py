@@ -5,22 +5,24 @@ from time import sleep
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         N = len(nums)
+        visited = [False] * N
         ans = []
-        permutation = []
 
-        def helper(curr):
-            print(curr)
-            if len(curr) == 1:
-                permutation.append(curr[0])
-                return
-            if len(curr) == 0:
-                return
+        curr = []
 
-            for i in range(1, N):
-                helper(curr[i:])
-                # helper(curr[:i])
+        def bt(l):
+            if l == N:
+                ans.append(curr.copy())
+            for i in range(N):
+                if not visited[i]:
+                    curr.append(nums[i])
+                    visited[i] = True
+                    bt(l + 1)
+                    visited[i] = False
+                    curr.pop()
 
-        helper(nums)
+        bt(0)
+        return ans
 
 
 nums = [1, 2, 3]

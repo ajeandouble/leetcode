@@ -3,40 +3,38 @@ from typing import List, Dict, Optional
 
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        W, H = len(board[0]), len(board)
-        N = len(word)  # FIXME: useful?
-        self.ans = False
+        ROWS, COLS = len(board), len(board[0])
+        N = len(word)
 
-        def bt(r, c, cur, visited):
-            if (r < 0 or r >= H) or (c < 0 or c >= W):
-                return
-            if visited.count((r, c)):
-                return
-            print(cur, visited, r, c)
-            cur += board[r][c]
-            if cur == word:
-                self.ans = True
-                return
-            visited.append((r, c))
-            bt(r - 1, c, cur, visited)
-            bt(r, c + 1, cur, visited)
-            bt(r + 1, c, cur, visited)
-            bt(r, c - 1, cur, visited)
-            visited.pop()
+        path = set()
 
-        visited = []
-        for r in range(0, H):
-            for c in range(0, W):
-                if board[r][c] not in word:
-                    visited.append((r, c))
+        def bt(r, c, i):
+            if i == N:
+                return True
+            if r < 0 or r >= ROWS or c < 0 or c >= COLS:
+                return False
+            if word[i] != board[r][c]:
+                return False
+            if (r, c) in path:
+                return False
+            path.add((r, c))
+            ans = (
+                (bt(r - 1, c, i + 1))
+                or (bt(r, c + 1, i + 1))
+                or (bt(r + 1, c, i + 1))
+                or (bt(r, c - 1, i + 1))
+            )
+            path.remove((r, c))
+            return ans
 
-        for r in range(0, H):
-            for c in range(0, W):
+        for r in range(0, ROWS):
+            for c in range(0, COLS):
                 if board[r][c] != word[0]:
                     continue
-                bt(r, c, "", visited)
+                if bt(r, c, 0):
+                    return True
 
-        return self.ans
+        return False
 
 
 s = Solution()
@@ -44,4 +42,11 @@ s = Solution()
 board = [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]
 word = "ABCCED"
 ans = s.exist(board, word)
-print(ans)
+print(f"{board}, {word} => {ans}")
+assert ans == True
+
+board = [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]]
+word = "ABCB"
+ans = s.exist(board, word)
+print(f"{board}, {word} => {ans}")
+assert ans == False
