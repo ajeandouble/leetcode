@@ -3,15 +3,21 @@ from typing import List
 
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        nums = [0] + nums
+        nums = nums
         print(nums)
         N = len(nums)
 
-        for i in range(2, N):
-            nums[i] = max(nums[i - 1], nums[i - 2] + nums[i])
+        ans = 0
+        p = 0
+        q = nums[0]
+        for i in range(1, N):
+            old_p = p
+            p = q
+            q = max(q, old_p + nums[i])
+            ans = max(ans, q)
+            print(p, q)
 
-        print(nums)
-        return max(nums)
+        return ans
 
 
 s = Solution()
