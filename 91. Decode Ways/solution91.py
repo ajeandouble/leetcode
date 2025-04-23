@@ -1,94 +1,76 @@
+isGoodSubstring = (
+    lambda x: len(x) < 2 or int(x) % 10 != 0 or int(x) < 30 and int(x) != 0
+)
+isDecodable = lambda x: int(x) != 0 and int(x) <= 26 and not (len(x) >= 2 and int(x) < 10)
+
+
 class Solution:
     def numDecodings(self, s: str) -> int:
         N = len(s)
-        val = int(s[:2])
+
+        # Check if empty string and bad substring on first char
+        if N == 0 or not isDecodable(s[0]):
+            return 0
         if N == 1:
             return 1
-        isBadVal = lambda x: x == 0 or x <= 9 or (x >= 30 and x % 10 == 0)
-        if N == 0 or isBadVal(val):
+        if not isGoodSubstring(s[:2]):
             return 0
-        q = 0
-        r = 1
-        for i in range(1, N):
-            if i + 1 < N:
-                val = int(s[i - 1:i + 1])
-                if isBadVal(val):
-                    return 0
-                curr = (q + 1) + (r + 1)
-        return (q, r)
 
-s = "340"   # BBF, VF, BZ
-ans = Solution().numDecodings(s)
-print(f"{s} => {ans}")
+        dp = [0] * N
+        dp[0] = 1 # necessarily decodable
+        dp[1] = 2 if isDecodable(s[:2]) and isDecodable(s[1]) else 1
 
-
-# s = "11"
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
+        for i in range(2, N):
+            if i  < N and not isGoodSubstring(s[i-1 : i + 1]):
+                return 0
+             # If (...s[i-1], s[i]) is a possible num decoding of substring s[:2]
+            if isDecodable(s[i]):
+                dp[i] += dp[i - 1]
+            if isDecodable(s[i-1:i+1]):
+                dp[i] += dp[i - 2] if i - 2 >= 0 else 0
+            # If (...s[i-2], s[i-1]-s[i]) is a possible num decoding of substrings[:2]
+        return dp[-1]
 
 
-# s = "20"
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
+ans = Solution().numDecodings("")           # (EMPTY)                       ->  0
+assert ans == 0
+ans = Solution().numDecodings("0")          # (INDECODABLE)                 ->  0
+assert ans == 0
+ans = Solution().numDecodings("00")         # (INDECODABLE)                 ->  0
+assert ans == 0
+ans = Solution().numDecodings("01")         # (INDECODABLE)                 ->  0
+assert ans == 0
+ans = Solution().numDecodings("10")         # J                             ->  1
+assert ans == 1
+ans = Solution().numDecodings("11")         # AA, K                         ->  2
+assert ans == 2
+ans = Solution().numDecodings("40")         # (BAD SUBSTRING)               ->  0
+assert ans == 0
+ans = Solution().numDecodings("340")        # (BAD SUBSTRING)               ->  3
+assert ans == 0
+ans = Solution().numDecodings("2222")       # BBBB, BBV, BVB, VBB, VV       ->  5
+assert ans == 5
+ans = Solution().numDecodings("2262")       # BBFB, VFB, BZB                ->  3
+assert ans == 3
+ans = Solution().numDecodings("11101")       # AAJA, KJA                    ->  2
+assert ans == 2
 
+assert isGoodSubstring("0") == True
+assert isGoodSubstring("00") == False
+assert isGoodSubstring("01") == True
+assert isGoodSubstring("10") == True
+assert isGoodSubstring("20") == True
+assert isGoodSubstring("21") == True
+assert isGoodSubstring("29") == True
+assert isGoodSubstring("30") == False
+assert isGoodSubstring("40") == False
+assert isGoodSubstring("90") == False
+assert isGoodSubstring("98") == True
+assert isGoodSubstring("99") == True
 
-# s = "11111"
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-
-# s = "111111"
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-# s = "1111111"
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-
-# s = "11111111"
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-# s = "111111111"
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-
-s = "226"  # (2,2,6; 22,6; 2,26)
-ans = Solution().numDecodings(s)
-print(f"{s} => {ans}")
-
-# s = "1111111111111"
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-# s = "10"  # (10)
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-# 0, 1
-# s = "12"  # (1,2; 12)
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-
-# s = "2269"  # (2,2,6,9; 2,26,9; 22,6,9)
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-# s = "22262"
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-# s = "222322223222232222323223"
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-# s = "2301"  # ()
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
-
-# s = "30"  # ()
-# ans = Solution().numDecodings(s)
-# print(f"{s} => {ans}")
+assert isDecodable("0") == False
+assert isDecodable("9") == True
+assert isDecodable("10") == True
+assert isDecodable("11") == True
+assert isDecodable("26") == True
+assert isDecodable("27") == False
