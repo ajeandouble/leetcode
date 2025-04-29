@@ -2,9 +2,7 @@ from typing import List
 
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        print(nums)
-        ans = 0
-        max_product = curr_max = curr_min = nums[0]
+        ans = curr_max = curr_min = nums[0]
         for n in nums[1:]:
             saved_max, saved_min = curr_max, curr_min
             
