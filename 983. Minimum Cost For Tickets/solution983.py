@@ -1,5 +1,7 @@
 from typing import List
 
+from typing import List
+
 class Solution:
     def mincostTickets(self, days: List[int], costs: List[int]) -> int:
         N, ans = len(days), 0
@@ -19,3 +21,6 @@ class Solution:
                 j += 1
             i += 1
         return dp[d]
+    
+assert Solution().mincostTickets([1,4,6,7,8,20], [2,7,15]) == 11
+assert Solution().mincostTickets([1,2,3,4,5,6,7,8,9,10,30,31], [2,7,15]) == 17
