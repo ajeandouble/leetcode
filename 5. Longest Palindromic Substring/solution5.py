@@ -1,23 +1,25 @@
 class Solution:
     def longestPalindrome(self, s: str) -> str:
-        def is_palin(l, r):
-            while l < r:
-                if s[l] != s[r]:
-                    return False
-                l += 1
-                r -= 1
-                return True
+        pass
+        return ""
 
-        ans = 0
-        for l in range(len(s)):
-            for r in range(l, len(s)):
-                print(l, r, s[l : r + 1])
-                if is_palin(l, r):
-                    ans = max(ans, r - l + 1)
-        return ans
-
-
-sol = Solution()
-s = "babad"
-ans = sol.longestPalindrome(s)
+s = "bbbb"
+ans = Solution().longestPalindrome(s)
 print(f"{s} => {ans}")
+assert ans == "bbbb"
+
+s = "cbbd"
+ans = Solution().longestPalindrome(s)
+print(f"{s} => {ans}")
+assert ans == "bb"
+
+s = "abc"
+ans = Solution().longestPalindrome(s)
+print(f"{s} => {ans}")
+
+assert (ans == "a" or ans == "b" or ans == "c")
+
+s = "abcba"
+ans = Solution().longestPalindrome(s)
+assert ans == "abcba"
+>>>>>>> 311101408f5b87e9c09720826ca4b5ab32dee218

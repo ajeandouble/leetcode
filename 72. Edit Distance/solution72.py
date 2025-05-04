@@ -1,28 +1,19 @@
-import numpy
-
 class Solution:
-    def minDistance(self, word1: str, word2: str) -> int:
-        dp = [[j if i == 0 else 0 for j in range(0, len(word2)+1)] for i in range(0, len(word1)+1)]
-        for i, r in enumerate(dp):
-            r[0] = i
-
-        # print(numpy.matrix(dp))
-
-        for i in range(1, len(word1)+1):
-            for j in range(1, len(word2)+1):
-                print(f'{i-1} {j-1}', word1[i-1], word2[j-1])
-                # print(replace, delete, insert, min(replace, delete, insert))
-
-                if word1[i-1] == word2[j-1]:
-                    dp[i][j] = dp[i-1][j-1]
+    def minDistance(self, text1: str, text2: str) -> int:
+        N1, N2 = len(text1), len(text2)
+        if N1 == 0 or N2 == 0:
+            return max(N1, N2)
+        dp = [[row] + [col + 1 for col in range(N2)] for row in range(N1 + 1)]
+        for row in range(1, N1 + 1):
+            for col in range(1, N2 + 1):
+                if text1[row - 1] == text2[col - 1]:
+                    dp[row][col] = dp[row - 1][col - 1]
                 else:
-                    replace = dp[i-1][j-1]
-                    delete = dp[i][j-1]
-                    insert = dp[i-1][j]
-                    dp[i][j] = 1 + min(replace, delete, insert)
+                    replace = dp[row - 1][col - 1]
+                    delete = dp[row][col - 1]
+                    insert = dp[row - 1][col]
+                    dp[row][col] = min(replace, delete, insert) + 1
 
-        print(numpy.matrix(dp))
-        return(dp[len(word1)][len(word2)])
-
-s = Solution()
-print(s.minDistance("ephrem", "benyam"))
+        return dp[-1][-1]
+    
+assert Solution().minDistance("horse", "ros") == 3
