@@ -14,7 +14,7 @@ Basic questions to get a feel of DP.
 
 - [x] [Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) - Linear time solution
 - [x] [N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/) - Linear time solution
-- [ ] [Perfect Squares](https://leetcode.com/problems/perfect-squares/) (maybe)
+- [x] [Perfect Squares](https://leetcode.com/problems/perfect-squares/) (maybe)
 
 ## Group 2 (Linear Sequence, Linear Time, Constant Transition)
 
@@ -42,18 +42,18 @@ DP table will have the same dimensions as grid, the state at cell `i,j` will be 
 
 `DP[i][j]` is some value related to the problem solved on prefix of sequence `1` with length `i`, and prefix on sequence `2` with length `j`.
 
-- [ ] [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
-- [ ] [Uncrossed Lines](https://leetcode.com/problems/uncrossed-lines/) (longest common subsequence)
-- [ ] [Minimum ASCII Delete Sum for Two Strings](https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/)
-- [ ] [Edit Distance](https://leetcode.com/problems/edit-distance/)
-- [ ] [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/)
+- [x] [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+- [x] [Uncrossed Lines](https://leetcode.com/problems/uncrossed-lines/) (longest common subsequence)
+- [x] [Minimum ASCII Delete Sum for Two Strings](https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/)
+- [x] [Edit Distance](https://leetcode.com/problems/edit-distance/)
+- [x] [Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/)
 - [ ] [Shortest Common Supersequence](https://leetcode.com/problems/shortest-common-supersequence/)
 
 ## Group 5 (Interval DP)
 
 DP problem is solved on every single interval (subarray) of the array
 
-- [ ] [Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/)
+- [x] [Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/)
 - [ ] [Stone Game VII](https://leetcode.com/problems/stone-game-vii/)
 - [ ] [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
 - [ ] [Minimum Cost Tree from Leaf Values](https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/) (hard to see interval)
