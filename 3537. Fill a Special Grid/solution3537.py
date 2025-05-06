@@ -1,4 +1,28 @@
 from typing import List
+from typing import List
+import numpy
+
+# Using stack for fun instead of recursion
+# class Solution:
+#     def specialGrid(self, n: int) -> List[List[int]]:
+#         n_square = 1 << n
+#         if n == 0:
+#             return [[0]]
+#         grid = [[-1] * n_square for _ in range(n_square)]
+#         count = 0
+#         r, c = 0, n_square - 1
+#         st = [(r, c, n)]
+#         while r != 0 or c != 0:
+#             r, c, i = st.pop()
+#             if i == 0:
+#                 grid[r][c] = count
+#                 count += 1
+#             else:
+#                 st.append((r, c - (1 << (i - 1)), i - 1)),
+#                 st.append((r + (1 << (i - 1)), c - (1 << (i - 1)), i - 1)),
+#                 st.append((r + (1 << (i - 1)), c, i - 1)),
+#                 st.append((r, c, i - 1))
+#         return grid
 
 
 class Solution:
