@@ -3,6 +3,8 @@
 ## Resources
 
 [Geohot - Hackerrank warmup @ youtube](https://www.youtube.com/watch?v=Q8nhQSp__3s)
+[Tushar Roy - Coding Made Simple](https://www.youtube.com/@tusharroy2525)
+[WilliamFiset](https://www.youtube.com/@WilliamFiset-videos)
 
 ## The Ultimate Dynamic Programming Roadmap
 
