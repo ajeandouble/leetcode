@@ -2,9 +2,13 @@
 
 ## Resources
 
-[Geohot - Hackerrank warmup @ youtube](https://www.youtube.com/watch?v=Q8nhQSp__3s)
-[Tushar Roy - Coding Made Simple](https://www.youtube.com/@tusharroy2525)
-[WilliamFiset](https://www.youtube.com/@WilliamFiset-videos)
+[Geohot - Hackerrank warmup @youtube](https://www.youtube.com/watch?v=Q8nhQSp__3s)
+[Tushar Roy - Coding Made Simple @youtube](https://www.youtube.com/@tusharroy2525)
+[WilliamFiset's youtube @youtube](https://www.youtube.com/@WilliamFiset-videos)
+
+### DP
+
+[Negamax - Chess Programming Wikip](<https://www.chessprogramming.org/Negamax#:~:text=a%20common%20way%20of%20implementing,min(%2Da%2C%20%2Db)>)
 
 ## The Ultimate Dynamic Programming Roadmap
 
@@ -56,7 +60,7 @@ DP table will have the same dimensions as grid, the state at cell `i,j` will be 
 DP problem is solved on every single interval (subarray) of the array
 
 - [x] [Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/)
-- [ ] [Stone Game VII](https://leetcode.com/problems/stone-game-vii/)
+- [x] [Stone Game VII](https://leetcode.com/problems/stone-game-vii/)
 - [ ] [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
 - [ ] [Minimum Cost Tree from Leaf Values](https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/) (hard to see interval)
 - [ ] [Strange Printer](https://leetcode.com/problems/strange-printer/) (hard)
