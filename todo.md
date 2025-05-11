@@ -9,6 +9,8 @@
 ### DP
 
 [Negamax - Chess Programming Wikip](<https://www.chessprogramming.org/Negamax#:~:text=a%20common%20way%20of%20implementing,min(%2Da%2C%20%2Db)>)
+[What's the difference between Megamax and Negamax @stackoverflow](https://stackoverflow.com/questions/65750233/what-is-the-difference-between-minimax-and-negamax)
+[5 Simple Steps for Solving Dynamic Programming Problems @youtube](https://www.youtube.com/watch?v=aPQY__2H3tE)
 
 ## The Ultimate Dynamic Programming Roadmap
 
