@@ -11,6 +11,8 @@
 [Negamax - Chess Programming Wikip](<https://www.chessprogramming.org/Negamax#:~:text=a%20common%20way%20of%20implementing,min(%2Da%2C%20%2Db)>)
 [What's the difference between Megamax and Negamax @stackoverflow](https://stackoverflow.com/questions/65750233/what-is-the-difference-between-minimax-and-negamax)
 [5 Simple Steps for Solving Dynamic Programming Problems @youtube](https://www.youtube.com/watch?v=aPQY__2H3tE)
+[Standford CS97SI - Dynamic Programming course](https://web.stanford.edu/class/cs97si/04-dynamic-programming.pdf)
+[Solved All Leetcode Dynamic Programming Problems @leetcode](https://leetcode.com/discuss/post/1000929/solved-all-dynamic-programming-dp-proble-8m82/)
 
 ## The Ultimate Dynamic Programming Roadmap
 
@@ -63,7 +65,7 @@ DP problem is solved on every single interval (subarray) of the array
 
 - [x] [Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/)
 - [x] [Stone Game VII](https://leetcode.com/problems/stone-game-vii/)
-- [ ] [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
+- [x] [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
 - [ ] [Minimum Cost Tree from Leaf Values](https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/) (hard to see interval)
 - [ ] [Strange Printer](https://leetcode.com/problems/strange-printer/) (hard)
 - [ ] [Burst Balloons](https://leetcode.com/problems/burst-balloons/) (hard)
