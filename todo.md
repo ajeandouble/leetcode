@@ -67,8 +67,8 @@ DP problem is solved on every single interval (subarray) of the array
 - [x] [Stone Game VII](https://leetcode.com/problems/stone-game-vii/)
 - [x] [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
 - [ ] [Minimum Cost Tree from Leaf Values](https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/) (hard to see interval)
-- [ ] [Strange Printer](https://leetcode.com/problems/strange-printer/) (hard)
-- [ ] [Burst Balloons](https://leetcode.com/problems/burst-balloons/) (hard)
+- [x] [Strange Printer](https://leetcode.com/problems/strange-printer/) (hard)
+- [x] [Burst Balloons](https://leetcode.com/problems/burst-balloons/) (hard)
 
 ## Group 6 (Linear Sequence Transition like N² Longest Increasing Subsequence)
 
