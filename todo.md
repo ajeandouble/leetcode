@@ -74,11 +74,11 @@ DP problem is solved on every single interval (subarray) of the array
 
 DP problem is solved on every prefix of the array. Transition is from every index `j < i`.
 
-- [ ] [Count Number of Teams](https://leetcode.com/problems/count-number-of-teams/)
-- [ ] [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
-- [ ] [Partition Array for Maximum Sum](https://leetcode.com/problems/partition-array-for-maximum-sum/)
-- [ ] [Largest Sum of Averages](https://leetcode.com/problems/largest-sum-of-averages/)
-- [ ] [Filling Bookcase Shelves](https://leetcode.com/problems/filling-bookcase-shelves/)
+- [x] [Count Number of Teams](https://leetcode.com/problems/count-number-of-teams/)
+- [x] [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
+- [x] [Partition Array for Maximum Sum](https://leetcode.com/problems/partition-array-for-maximum-sum/)
+- [x] [Largest Sum of Averages](https://leetcode.com/problems/largest-sum-of-averages/)
+- [x] [Filling Bookcase Shelves](https://leetcode.com/problems/filling-bookcase-shelves/)
 
 ## Group 7 (Knapsack-like)
 
