@@ -84,8 +84,8 @@ DP problem is solved on every prefix of the array. Transition is from every inde
 
 DP state is similar to the classical knapsack problem.
 
-- [ ] [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
-- [ ] [Number of Dice Rolls with Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)
+- [x] [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
+- [x] [Number of Dice Rolls with Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)
 - [ ] [Combination Sum IV](https://leetcode.com/problems/combination-sum-iv/)
 - [ ] [Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes/)
 - [ ] [Coin Change](https://leetcode.com/problems/coin-change/)
