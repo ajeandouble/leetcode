@@ -86,9 +86,9 @@ DP state is similar to the classical knapsack problem.
 
 - [x] [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
 - [x] [Number of Dice Rolls with Target Sum](https://leetcode.com/problems/number-of-dice-rolls-with-target-sum/)
-- [ ] [Combination Sum IV](https://leetcode.com/problems/combination-sum-iv/)
-- [ ] [Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes/)
-- [ ] [Coin Change](https://leetcode.com/problems/coin-change/)
+- [x] [Combination Sum IV](https://leetcode.com/problems/combination-sum-iv/)
+- [x] [Ones and Zeroes](https://leetcode.com/problems/ones-and-zeroes/)
+- [x] [Coin Change](https://leetcode.com/problems/coin-change/)
 - [ ] [Coin Change II](https://leetcode.com/problems/coin-change-ii/)
 - [ ] [Target Sum](https://leetcode.com/problems/target-sum/)
 - [ ] [Last Stone Weight II](https://leetcode.com/problems/last-stone-weight-ii/)

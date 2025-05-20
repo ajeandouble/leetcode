@@ -14,9 +14,6 @@ class Solution:
                     t[1] += 1
             strs[i] = t  # type: ignore
 
-        max_total = 0
-        memo = {}
-
         @cache
         def dp(i, zeroes, ones, items):
             if i >= N:

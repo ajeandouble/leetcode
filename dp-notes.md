@@ -116,6 +116,6 @@ This covers:
 This **does NOT** cover:
 
 - Knapsack (why? because `dp[i][w]` depends on looping over many choices of weights/costs)
-- LIS with O(n^2) (dp[i] = max(dp[j] + 1) for all j < i and arr[j] < arr[i])
+- Longest Increasing Subsequence with O(n^2) (dp[i] = max(dp[j] + 1) for all j < i and arr[j] < arr[i])
 
 ### TODO...
